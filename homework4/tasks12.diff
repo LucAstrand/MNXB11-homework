@@ -1,0 +1,74 @@
+Only in /home/lucast: answers.sh
+Only in /home/lucast: .apptainer
+Only in /home/lucast: .bash_history
+diff -y /etc/skel/.bash_logout /home/lucast/.bash_logout
+# ~/.bash_logout						# ~/.bash_logout
+
+diff -y /etc/skel/.bash_profile /home/lucast/.bash_profile
+# .bash_profile							# .bash_profile
+
+# Get the aliases and functions					# Get the aliases and functions
+if [ -f ~/.bashrc ]; then					if [ -f ~/.bashrc ]; then
+	. ~/.bashrc							. ~/.bashrc
+fi								fi
+
+# User specific environment and startup programs		# User specific environment and startup programs
+							      >	export PATH="/projects/hep/fs10/mnxb11/bin:$PATH"
+diff -y /etc/skel/.bashrc /home/lucast/.bashrc
+# .bashrc							# .bashrc
+
+# Source global definitions					# Source global definitions
+if [ -f /etc/bashrc ]; then					if [ -f /etc/bashrc ]; then
+	. /etc/bashrc							. /etc/bashrc
+fi								fi
+
+# User specific environment					# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]		if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
+then								then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"			    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi								fi
+export PATH							export PATH
+
+# Uncomment the following line if you don't like systemctl's 	# Uncomment the following line if you don't like systemctl's 
+# export SYSTEMD_PAGER=						# export SYSTEMD_PAGER=
+
+# User specific aliases and functions				# User specific aliases and functions
+if [ -d ~/.bashrc.d ]; then					if [ -d ~/.bashrc.d ]; then
+	for rc in ~/.bashrc.d/*; do					for rc in ~/.bashrc.d/*; do
+		if [ -f "$rc" ]; then						if [ -f "$rc" ]; then
+			. "$rc"								. "$rc"
+		fi								fi
+	done								done
+fi								fi
+
+unset rc							unset rc
+Only in /home/lucast: .cache
+Only in /home/lucast: .config
+Only in /home/lucast: Desktop
+Only in /home/lucast: Documents
+Only in /home/lucast: .dotnet
+Only in /home/lucast: Downloads
+Only in /etc/skel/: .emacs
+Only in /home/lucast: .emacs.d
+Only in /home/lucast: git
+Only in /home/lucast: .gitconfig
+Only in /home/lucast: .ipython
+Only in /etc/skel/: .kshrc
+Only in /home/lucast: .lesshst
+Only in /home/lucast: .local
+Common subdirectories: /etc/skel/.mozilla and /home/lucast/.mozilla
+Only in /home/lucast: Music
+Only in /home/lucast: .nv
+Only in /home/lucast: Pictures
+Only in /home/lucast: .pki
+Only in /home/lucast: Public
+Only in /home/lucast: .python_history
+Only in /home/lucast: .ssh
+Only in /home/lucast: Templates
+Only in /home/lucast: test
+Only in /home/lucast: tutorial5
+Only in /home/lucast: tutorial-homework
+Only in /home/lucast: Videos
+Only in /home/lucast: .viminfo
+Only in /home/lucast: .vscode
+Only in /etc/skel/: .zshrc

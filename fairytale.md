@@ -1,8 +1,8 @@
 # MNXB11 fairytale 
 
 Once upon a time, 
-there was a **paranoid** _snail_,
-always looking at who was following it...
+there was a **curious** _snail_,
+always looking for new adventures...
 
 ```
      /^\    /^\

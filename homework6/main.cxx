@@ -3,20 +3,20 @@
 int main(int argc, char *argv[]) {
   bool hasValidArguementCount = (argc == 3);
   if (hasValidArguementCount) {
-    std::string var2{argv[0]};
-    auto var3{*(argv[1])};
-    auto var4{var2.size()};
-    auto var5{std::atoi(argv[2])};
-    auto var6{0};
-    auto var7{0};
-    std::string var8{argv[1]};
+    std::string programName{argv[0]};
+    auto firstCharOfInput{*(argv[1])};
+    auto programNameLength{programName.size()};
+    auto targetValue{std::atoi(argv[2])};
+    auto checksum{0};
+    auto currentIndex{0};
+    std::string inputString{argv[1]};
     while (true) {
-      var6 += var8[var7++];
-      if (var7 >= static_cast<int>(var8.size())) {
+      checksum += inputString[currentIndex++];
+      if (currentIndex >= static_cast<int>(inputString.size())) {
         break;
       }
     }
-    if ((var6 ^ var3 * 3) << (var4 & 0x1f) == var5) {
+    if ((checksum ^ firstCharOfInput * 3) << (programNameLength & 0x1f) == targetValue) {
       std::cout << "Correct!" << std::endl;
     } else {
       std::cout << "Wrong!" << std::endl;

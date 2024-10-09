@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
 int main(int argc, char *argv[]) {
-  if (argc == 3) {
+  bool hasValidArguementCount = (argc == 3);
+  if (hasValidArguementCount) {
     std::string var2{argv[0]};
     auto var3{*(argv[1])};
     auto var4{var2.size()};

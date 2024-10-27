@@ -8,6 +8,12 @@ class root_class : public TObject {
     root_class(); // default constructor
     root_class(Int_t ev, Double_t px, Double_t py, Double_t pz); // some other constructor
     virtual ~root_class(); // destructor
+
+    // Getter methods to access private members
+    Int_t GetEv() const { return ev; }
+    Double_t GetPx() const { return px; }
+    Double_t GetPy() const { return py; }
+    Double_t GetPz() const { return pz; }
     
     private:
     // some private members

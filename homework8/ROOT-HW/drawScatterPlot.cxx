@@ -12,17 +12,16 @@ void drawScatterPlot() {
     TTree* T = static_cast<TTree*>(f->Get("tree"));
 
     // Define the magnitude criterion for filtering
-    // For example, we'll filter entries where the magnitude is less than 10
+    // For example, we'll filter entries where the magnitude is less than 5
     Double_t magnitudeThreshold = 5.0;
 
     // Draw a scatter plot of px * py vs pz
-    // The formula "px*py:pz" specifies the x and y axes, and we use a criterion based on the magnitude
+
+    // Note: px*py:pz will put px*py on y-axis and pz on x-axis 
     TCanvas* c1 = new TCanvas("c1", "Scatter Plot", 800, 600);
-    // T->Draw("px*py:pz", Form("sqrt(px*px + py*py + pz*pz) < %f", magnitudeThreshold), "colz");
-    T->Draw("px*py:pz", Form("GetVectorMagnitude() < %f", magnitudeThreshold), "SCATTER");
+    // T->Draw("px*py:pz", Form("sqrt(px*px + py*py + pz*pz) < %f", magnitudeThreshold), "colz"); //2D with colormap
+    T->Draw("px*py:pz", Form("GetVectorMagnitude() < %f", magnitudeThreshold), "SCATTER"); // 3D no Colormap
 
-
-    // Access the histogram 
     TH1 *hist = (TH1*)gPad->GetPrimitive("htemp");
 
     if (hist) {

@@ -13,18 +13,27 @@ void drawScatterPlot() {
 
     // Define the magnitude criterion for filtering
     // For example, we'll filter entries where the magnitude is less than 10
-    Double_t magnitudeThreshold = 10.0;
+    Double_t magnitudeThreshold = 5.0;
 
     // Draw a scatter plot of px * py vs pz
     // The formula "px*py:pz" specifies the x and y axes, and we use a criterion based on the magnitude
     TCanvas* c1 = new TCanvas("c1", "Scatter Plot", 800, 600);
-    T->Draw("px*py:pz", Form("sqrt(px*px + py*py + pz*pz) < %f", magnitudeThreshold), "SCATTER");
+    // T->Draw("px*py:pz", Form("sqrt(px*px + py*py + pz*pz) < %f", magnitudeThreshold), "colz");
+    T->Draw("px*py:pz", Form("GetVectorMagnitude() < %f", magnitudeThreshold), "SCATTER");
 
-    // Optionally, you can set labels for axes
+
+    // Access the histogram 
+    TH1 *hist = (TH1*)gPad->GetPrimitive("htemp");
+
+    if (hist) {
+        hist->SetTitle("Scatter Plot of px*py vs. pz; pz; px*py");  
+    }
+
+    
     c1->SetGrid();
-    c1->Update(); // Ensure the canvas updates to show the scatter plot
+    c1->Update(); 
 
-    // Cleanup: Close the file if not needed further
+    // Cleanup
     f->Close();
-    delete f; // Also delete the pointer to free up memory
+    delete f; 
 }

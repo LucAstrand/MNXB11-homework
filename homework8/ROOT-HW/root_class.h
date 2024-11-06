@@ -15,6 +15,8 @@ class root_class : public TObject {
     Double_t GetPy() const { return py; }
     Double_t GetPz() const { return pz; }
     
+    Double_t GetVectorMagnitude() { return VectorMagnitude(); }
+
     private:
     // some private members
     Int_t ev;

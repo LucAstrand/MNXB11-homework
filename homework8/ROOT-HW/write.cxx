@@ -29,6 +29,10 @@ void write(){
     // Initialize your new object below
         gRandom->Rannor(px,py);
         pz = px*px + py*py;
+        // px = gRandom->Gaus(0,.02);
+        // py = gRandom->Gaus(0,.02);
+        // pz = gRandom->Gaus(0,.02);
+
         ev = i;
         event = new root_class(ev,px,py,pz);
     // Now fill tree
